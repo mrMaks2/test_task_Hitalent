@@ -15,3 +15,6 @@ class Reservation(ReservationBase):
 
     class Config:
         orm_mode = True
+
+class Pass:
+    pass

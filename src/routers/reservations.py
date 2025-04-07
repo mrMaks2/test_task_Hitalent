@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from datetime import datetime, timedelta
+from datetime import timedelta
 from src.database import SessionLocal
 from src.models.reservation import Reservation
 from src.schemas.reservation import ReservationCreate, Reservation as ReservationResponse
@@ -46,3 +46,6 @@ async def delete_reservation(reservation_id: int, db: AsyncSession = Depends(get
     await db.delete(reservation)
     await db.commit()
     return {"detail": "Бронирование удалено"}
+
+class Pass:
+    pass

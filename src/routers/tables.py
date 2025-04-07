@@ -31,3 +31,6 @@ async def delete_table(table_id: int, db: AsyncSession = Depends(get_db)):
     await db.delete(table)
     await db.commit()
     return {"detail": "Стол удален"}
+
+class Pass:
+    pass

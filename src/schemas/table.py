@@ -13,3 +13,6 @@ class Table(TableBase):
 
     class Config:
         orm_mode = True
+
+class Pass:
+    pass
