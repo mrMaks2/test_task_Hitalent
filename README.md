@@ -12,10 +12,16 @@
     git clone https://github.com/mrMaks2/test_task_Hitalent.git
     ```
 
-   Есть необходимость исправить коннектные данные для БД PostgreSQL в файлах database.py, alembic.ini, docker-compose.yml
+   Необходимо исправить коннектные данные для БД PostgreSQL в файлах database.py, alembic.ini, docker-compose.yml
 
 
-3. **Запустите приложение с помощью Docker Compose:**
+3. **Запустите виртуальное окружение:**
+
+    ```bash
+    venv\Scripts\activate
+    ```
+
+4. **Запустите приложение с помощью Docker Compose:**
 
     ```bash
     docker-compose up --build
@@ -24,13 +30,13 @@
     Это создаст и запустит контейнеры для приложения FastAPI, PostgreSQL.
 
 
-4. **Доступ к API:**
+5. **Доступ к API:**
 
 
     После запуска приложение будет доступно по адресу `http://localhost:8000`.
 
 
-5. **Доступ к документации Swagger:**
+6. **Доступ к документации Swagger:**
 
 
     Автоматически сгенерированная документация Swagger будет 
