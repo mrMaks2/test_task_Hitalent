@@ -8,6 +8,3 @@ class Table(Base):
     name = Column(String, index=True)
     seats = Column(Integer)
     location = Column(String)
-
-class Pass:
-    pass

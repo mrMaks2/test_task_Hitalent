@@ -1,14 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from src.database import SessionLocal
+from src.database import get_db
 from src.models.table import Table
 from src.schemas.table import TableCreate, Table as TableResponse
 
 router = APIRouter()
-
-async def get_db() -> AsyncSession:
-    async with SessionLocal() as session:
-        yield session
 
 @router.get("/", response_model=list[TableResponse])
 async def read_tables(skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_db)):
@@ -31,6 +27,3 @@ async def delete_table(table_id: int, db: AsyncSession = Depends(get_db)):
     await db.delete(table)
     await db.commit()
     return {"detail": "Стол удален"}
-
-class Pass:
-    pass

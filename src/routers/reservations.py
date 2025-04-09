@@ -1,15 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from datetime import timedelta
-from src.database import SessionLocal
+from src.database import get_db
 from src.models.reservation import Reservation
 from src.schemas.reservation import ReservationCreate, Reservation as ReservationResponse
 
 router = APIRouter()
-
-async def get_db() -> AsyncSession:
-    async with SessionLocal() as session:
-        yield session
 
 @router.get("/", response_model=list[ReservationResponse])
 async def read_reservations(skip: int = 0, limit: int = 10, db: AsyncSession = Depends(get_db)):
@@ -47,5 +43,3 @@ async def delete_reservation(reservation_id: int, db: AsyncSession = Depends(get
     await db.commit()
     return {"detail": "Бронирование удалено"}
 
-class Pass:
-    pass

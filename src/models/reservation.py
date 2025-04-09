@@ -9,6 +9,3 @@ class Reservation(Base):
     table_id = Column(Integer, ForeignKey('tables.id'))
     reservation_time = Column(DateTime)
     duration_minutes = Column(Integer)
-
-class Pass:
-    pass
